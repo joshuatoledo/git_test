@@ -38,38 +38,37 @@
         const button = document.querySelector('button');
 
 
-        function btn (){
-          const form = document.querySelector('form');
-          form.addEventListener('submit',function(e){
-            e.preventDefault();
-            console.log('click');
-          })
-
-            let inputs = input.value;
+        function btn (e){
+         e.preventDefault();
+      
+     
+          const inputs = input.value;
+          input.value = "";
 
 
           const listItems = document.createElement('li');
           const span = document.createElement('span');
-          span.textContent = input;
           const delButtton  = document.createElement('button');
+
+          span.textContent = inputs;
           delButtton.textContent = 'Delete';
 
           listItems.appendChild(span);
           listItems.appendChild(delButtton);
           unorderedList.appendChild(listItems);
 
-    
 
           delButtton.addEventListener("click",function(e){
             e.target.closest('li').remove();
           })
 
 
-
-          
+          input.focus();
         }
   
-        btn();
+        button.addEventListener('click',btn);
+
+
 
 
     </script>
