@@ -31,19 +31,44 @@
     </ul>
 
     <script>
-
-        const label = document.querySelector('label');
+      
+       
+        const unorderedList = document.querySelector('ul');
         const input = document.querySelector('input');
         const button = document.querySelector('button');
 
-       
-        function btn () {
-          button.addEventListener('click',function(event){
-            event.preventDefault();
-            console.log('Click');
-            });
-        };
 
+        function btn (){
+          const form = document.querySelector('form');
+          form.addEventListener('submit',function(e){
+            e.preventDefault();
+            console.log('click');
+          })
+
+            let inputs = input.value;
+
+
+          const listItems = document.createElement('li');
+          const span = document.createElement('span');
+          span.textContent = input;
+          const delButtton  = document.createElement('button');
+          delButtton.textContent = 'Delete';
+
+          listItems.appendChild(span);
+          listItems.appendChild(delButtton);
+          unorderedList.appendChild(listItems);
+
+    
+
+          delButtton.addEventListener("click",function(e){
+            e.target.closest('li').remove();
+          })
+
+
+
+          
+        }
+  
         btn();
 
 
